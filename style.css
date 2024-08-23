@@ -34,19 +34,9 @@ body::after , .projects .cardsContainer .cards::after{
     align-items: center;
 }
 
-.navbar{
-    position: sticky;
-    top: 0%;
-    height: 4rem;
-    font-family: 'Roboto Mono', monospace;
-    z-index: 3;
-}
 
-#logo{
-    background-color: #F7C53B;
-    height: 100%;
-    width: 25%;
-}
+
+
 
 .companyLogo{
     height: 2.3rem;
@@ -58,8 +48,9 @@ body::after , .projects .cardsContainer .cards::after{
     width: 100%;
 }
 .cName{
+    background-color: #F7C53B;
     align-items: flex-start;
-    width: 70%;
+    width: 20%;
 }
 
 
@@ -495,16 +486,9 @@ iframe{
 
 @media only screen and (max-width: 550px){
 
-    .navbar{
-        position: fixed;
-        top: 0%;
-        width: 100vw;
-    }
     
-    #logo{
-        width: 100%;
-    }
-
+    
+    
     .cName{
         align-items: flex-start;
         width: auto;
