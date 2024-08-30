@@ -410,14 +410,14 @@ body::after , .projects .cardsContainer .cards::after{
     width: 100%;
 }
 
-form{
+.formContainer form{
     flex-direction: column;
     align-items: flex-start;
     height: 84%;
     width: 100%;
 }
 
-label{
+.formContainer label{
     font-family: 'Open Sans' , sans-serif;
     color: #4e4e4e;
     font-weight: 300;
@@ -427,7 +427,7 @@ label{
     margin-top: 0.7rem;
 }
 
-input{
+.formContainer input{
     height: 25px;
     width: 98%;
     background-color: #dbdada;
@@ -437,12 +437,12 @@ input{
 }
 
 
-input:nth-last-child(2){
+.formContainer input:nth-last-child(2){
     height: 75px;
     line-height: 100%;
 }
 
-input:last-child{
+.formContainer input:last-child{
     align-self: flex-end;
     background-color: #000000;
     color: #fcd56b;

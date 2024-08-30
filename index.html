@@ -73,13 +73,87 @@
                 <a class="nav-link text-white" href="#projects">Project</a>
               </li>
               <li class="nav-item px-2">
-                <a class="nav-link text-white" href="#contact">Contact</a>
+                <button class="btn nav-link text-white bg-success rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">Apply Job</button>
               </li>
               
             </ul>
           </div>
         </div>
       </nav>
+
+   <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Candidate Information</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <!-- Form -->
+            <form id="sampleForm">
+                <!-- Text Input -->
+                <div class="input-group">
+                    <label for="name">Name</label> <br>
+                    <input type="text" id="name" class="form-control ms-2"  aria-label="Name" aria-describedby="basic-addon2">
+                </div>
+                <!-- Number Input -->
+                <div class="input-group">
+                    <label for="age">Age</label> <br>
+                    <input type="number" id="age" class="form-control ms-2"  aria-label="age" aria-describedby="basic-addon2">
+                </div>
+                <!-- Dropdown -->
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <select class="form-select" id="country">
+                        <option selected>Select your country</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="UK">UK</option>
+                        <option value="India">India</option>
+                    </select>
+                </div>
+                <!-- Radio Buttons -->
+                <div class="mb-3">
+                    <label class="form-label">Gender</label><br>
+                    <input type="radio" id="male" name="gender" value="Male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label>
+                </div>
+                <!-- Checkbox -->
+                <div class="mb-3">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">I agree to the terms and conditions</label>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onclick="getFormValues()">Apply</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="displayArea">
+                
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+            </div>
+        </div>
+        </div>
+    </div>
 
     <section class="center intro">
         <div class="introSentence">
@@ -319,5 +393,26 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function getFormValues() {
+            // Get form values
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const country = document.getElementById('country').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const terms = document.getElementById('terms').checked;
+
+            // Display values on the page
+            const displayArea = document.getElementById('displayArea');
+            displayArea.innerHTML = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>Country:</strong> ${country}</p>
+                <p><strong>Gender:</strong> ${gender}</p>
+                <p><strong>Agreed to Terms:</strong> ${terms ? 'Yes' : 'No'}</p>
+            `;
+
+        }
+    </script>
 </body>
 </html>
